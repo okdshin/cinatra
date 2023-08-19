@@ -54,7 +54,7 @@ public:
         wild_card
             ? url
             : std::string_view{method.data(), method.size() + url.size() + 1};
-    auto it = map_invokers_.find(key);
+    auto it = map_invokers_.find(std::string(key));
     if (it != map_invokers_.end()) {
       auto &pair = it->second;
       if (method[0] < 'A' || method[0] > 'Z')
